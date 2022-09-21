@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Runs a single command using the runners shell
+      - name: "context"
+        env:
+          COMMIT_ID: ${{ github.sha }}
+        run: echo "Commit ID => $COMMIT_ID"
+
+
+
+
